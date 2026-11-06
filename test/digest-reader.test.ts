@@ -41,7 +41,12 @@ describe('readNight edge cases', () => {
 
   it('returns no rows for an empty file', () => {
     writeFileSync(join(dir, 'n.jsonl'), '');
-    expect(readNight(dir, 'n')).toEqual({ night: 'n', rows: [], badLines: 0 });
+    expect(readNight(dir, 'n')).toEqual({
+      night: 'n',
+      rows: [],
+      badLines: 0,
+      counts: { ok: 0, retry: 0, fail: 0 },
+    });
   });
 
   it('counts garbage and incomplete lines without throwing', () => {
