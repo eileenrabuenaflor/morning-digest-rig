@@ -16,6 +16,7 @@ export type Night = {
   night: string; // YYYY-MM-DD
   rows: DigestRow[]; // sorted by job
   badLines: number; // lines that did not parse, counted never thrown
+  counts: Record<RunStatus, number>; // run lines per status; bad lines excluded
 };
 
 // Returns null when runs/<night>.jsonl does not exist.
